@@ -1,0 +1,42 @@
+modules:
+  # This maps paths in the package install prefix to environment variables
+  # they should be added to. For example, <prefix>/bin should be in PATH.
+  prefix_inspections:
+    ./bin:
+      - PATH
+    ./man:
+      - MANPATH
+    ./share/man:
+      - MANPATH
+    ./share/aclocal:
+      - ACLOCAL_PATH
+    ./lib/pkgconfig:
+      - PKG_CONFIG_PATH
+    ./lib64/pkgconfig:
+      - PKG_CONFIG_PATH
+    ./share/pkgconfig:
+      - PKG_CONFIG_PATH
+    ./:
+      - CMAKE_PREFIX_PATH
+
+  # These are configurations for the module set named "default"
+  default:
+    # Where to install modules
+    roots:
+     lmod: /opt/apps/nfs/modules/zen4/rocky9.4
+    arch_folder: false
+    enable: []
+
+    # Default configurations if lmod is enabled
+    lmod:
+      hash_length: 0
+      hide_implicits: true
+      exclude_implicits: true
+      core_compilers:
+      - gcc@11.4.1
+      all:
+        autoload: direct
+      hierarchy:
+        - mpi
+      include:
+      - gcc

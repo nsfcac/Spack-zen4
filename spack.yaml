@@ -1,0 +1,51 @@
+# This is a Spack Environment file.
+#
+# It describes a set of packages to be installed, along with
+# configuration settings.
+spack:
+  include:
+  - packages.yaml
+  - compilers.yaml
+  - modules.yaml
+
+  repos:
+  - $spack/var/spack/repos/repacss
+  - $spack/var/spack/repos/builtin
+
+  definitions:
+  - basegcc11: [gcc@11.4.1]
+  - core_packages:
+    - gcc@14.2.0
+  - mpi_apps:
+    - openmpi@5.0.5 fabrics=ucx schedulers=slurm
+
+  # add package specs to the `specs` list
+  specs:
+  - matrix:
+    - [$core_packages]
+    - [$%basegcc11]
+  - matrix:
+    - [$mpi_apps]
+    - [$%basegcc11]
+
+  view: true
+  concretizer:
+    unify: true
+
+  # bootstrap:
+  #   enable: true
+  #   root: /opt/apps/nfs/spack-v0.23/var/spack/environments/bootstrap
+  #   sources:
+  #   - name: github-actions-v0.6
+  #     metadata: $spack/share/spack/bootstrap/github-actions-v0.6
+  #   - name: github-actions-v0.5
+  #     metadata: $spack/share/spack/bootstrap/github-actions-v0.5
+  #   - name: spack-install
+  #     metadata: $spack/share/spack/bootstrap/spack-install
+  #   trusted:
+  #   # By default we trust bootstrapping from sources and from binaries
+  #   # produced on Github via the workflow
+  #     github-actions-v0.6: true
+  #     github-actions-v0.5: true
+  #     spack-install: true
+

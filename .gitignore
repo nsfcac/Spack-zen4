@@ -1,0 +1,26 @@
+# Ignore Spack build artifacts and caches
+/.spack-env
+/.spack-env-view
+/.spack
+/.spack-cache
+/.lock*
+/.lock
+
+# Ignore module files if generated
+/lmod
+/modules
+
+# Ignore views if symbolic links are used
+/view
+/opt/spack/view
+/opt/apps/spack/view
+
+# Ignore concretization lock and metadata if rebuilding frequently
+spack.lock
+
+# Ignore editor and OS junk
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

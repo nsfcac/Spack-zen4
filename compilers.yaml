@@ -1,0 +1,28 @@
+compilers:
+- compiler:
+    spec: gcc@=11.4.1
+    paths:
+      cc: /usr/bin/gcc
+      cxx: /usr/bin/g++
+      f77: /usr/bin/gfortran
+      fc: /usr/bin/gfortran
+    flags: {}
+    operating_system: rocky9
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
+
+- compiler:
+    spec: gcc@=14.2.0
+    paths:
+      cc: /opt/apps/nfs/spack-v0.23/var/spack/environments/zen4/.spack-env/view/bin/gcc
+      cxx: /opt/apps/nfs/spack-v0.23/var/spack/environments/zen4/.spack-env/view/bin/g++
+      f77: /opt/apps/nfs/spack-v0.23/var/spack/environments/zen4/.spack-env/view/bin/gfortran
+      fc: /opt/apps/nfs/spack-v0.23/var/spack/environments/zen4/.spack-env/view/bin/gfortran
+    flags: {}
+    operating_system: rocky9
+    target: x86_64
+    modules: []
+    environment: {}
+    extra_rpaths: []
