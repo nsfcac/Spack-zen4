@@ -17,7 +17,10 @@ spack:
   - core_packages:
     - gcc@14.2.0
   - mpi_apps:
-    - openmpi@5.0.5 fabrics=ucx schedulers=slurm
+    - openmpi@4.1.6 fabrics=ucx schedulers=slurm
+  - scientific_libs:
+    - fftw +openmp +mpi
+    - hdf5 +mpi
 
   # add package specs to the `specs` list
   specs:
@@ -26,6 +29,9 @@ spack:
     - [$%basegcc11]
   - matrix:
     - [$mpi_apps]
+    - [$%basegcc11]
+  - matrix:
+    - [$scientific_libs]
     - [$%basegcc11]
 
   view: true
