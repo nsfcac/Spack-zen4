@@ -36,9 +36,15 @@ spack:
     - [$scientific_libs]
     - [$%basegcc11]
 
+  - mpich@4.2.3
   view: true
   concretizer:
     unify: true
+
+  # Uncomment to enable the use of a custom install tree.
+  # This is for testing Spack in a non-default location.
+  # config:
+  #   install_tree: $HOME/.spack/.spack-store
 
   # bootstrap:
   #   enable: true
